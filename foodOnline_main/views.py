@@ -2,4 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def home(request):
-  return HttpResponse('Hello World')
+  context = {
+    'name': 'Charan',
+    'age': 21
+  }
+  return render(request, 'home.html', context)
