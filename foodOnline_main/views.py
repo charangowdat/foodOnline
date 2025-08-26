@@ -7,3 +7,4 @@ def home(request):
     'age': 21
   }
   return render(request, 'home.html', context)
+

@@ -1,0 +1,18 @@
+<h2>403 Forbidden</h2>
+<p>You are not autorized to view this page!</p>
+<p>Get your ass back in your page!</p>
+{% if user.role == 1 %}
+    {% url 'vendorDashboard' as back_url %}
+{% elif user.role == 2 %}
+    {% url 'custDashboard' as back_url %}
+{% elif user.is_superadmin %}
+    {% with '/admin' as back_url %}
+        <!-- using "with" since it's not a URL name -->
+    {% endwith %}
+{% endif %}
+
+{% if back_url %}
+  <a href="{{ back_url }}">
+    <button>Go Back</button>
+  </a>
+{% endif %}
